@@ -118,9 +118,6 @@ gulp.task('compile-sass', function () {
       sourceMap: ENV_PROD ? false : true,
       sourceComments: ENV_PROD ? false : true,
       outputStyle: ENV_PROD ? 'compressed' : 'expanded', // nested, expanded, compact, compressed
-      includePaths: [
-        // 'node_modules/bootstrap-sass/assets/stylesheets',
-      ],
       errLogToConsole: true,
       onError: console.log,
     })
