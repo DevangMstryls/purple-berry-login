@@ -266,6 +266,7 @@ gulp.task('copy:build', function () {
     DIRS.src.css + '/**/*',
     DIRS.src.js + '/**/*',
     DIRS.src.favicons + '/**/*',
+    DIRS.src.icons + '/**/*',
     DIRS.src.root + '/*.htaccess',
   ];
 
