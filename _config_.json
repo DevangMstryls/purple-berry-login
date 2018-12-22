@@ -1,0 +1,38 @@
+{
+	"name": "Purple Berry Login",
+	"siteUrl": "",
+	"server": {
+		"host": "127.0.0.1",
+		"port": 8000,
+		"base": {
+			"dev": "./www",
+			"prod": "./dist"
+		}
+	},
+	"dirs": {
+		"src": {
+			"root": "www",
+			"assets": "www/static/assets",
+			"fonts": "www/static/assets/fonts",
+			"images": "www/static/assets/images",
+			"favicons": "www/static/assets/favicons",
+			"icons": "www/static/assets/icons",
+			"scss": "www/static/src/scss",
+			"css": "www/static/compiled/css",
+			"devJs": "www/static/src/js",
+			"js": "www/static/compiled/js"
+		},
+		"dest": {
+			"root": "dist",
+			"assets": "dist/static/assets",
+			"fonts": "dist/static/assets/fonts",
+			"images": "dist/static/assets/images",
+			"favicons": "dist/static/assets/favicons",
+			"icons": "dist/static/assets/icons",
+			"scss": "dist/static/src/scss",
+			"css": "dist/static/compiled/css",
+			"devJs": "dist/static/src/js",
+			"js": "dist/static/compiled/js"
+		}
+	}
+}

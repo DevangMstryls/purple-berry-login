@@ -1,0 +1,34 @@
+.txt-color {
+  &-primary {
+    color: $theme-color-primary;
+  }
+  &-primary-light {
+    color: $theme-color-primary-light;
+  }
+  &-primary-dark {
+    color: $theme-color-primary-dark;
+  }
+}
+
+.txt-al {
+  &-l {
+    text-align: left;
+  }
+  &-c {
+    text-align: center;
+  }
+}
+
+.m-t-m {
+  margin-top: 12px;
+}
+.m-b-m {
+  margin-bottom: 12px;
+}
+.m-b-xl {
+  margin-bottom: 20px;
+}
+
+.w-100 {
+  width: 100%;
+}

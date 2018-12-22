@@ -1,0 +1,147 @@
+/*
+ * 1. Prevent iOS text size adjust after orientation change, without disabling
+ *    user zoom.
+ */
+body {
+  font-size: 14px;
+  line-height: 1.4;
+  font-family: $theme-font-1;
+  color: black;
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%; /* 1 */
+  -ms-text-size-adjust: 100%; /* 1 */
+}
+
+*, *:before, *:after {
+  outline: none;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  -o-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+a {
+  color: black;
+  text-decoration: none;
+
+  &:hover, &:focus {
+    color: gray;
+    text-decoration: none;
+    outline: 0;
+  }
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+h1, h2, h3, h4, h5, h6, p, ul, table {
+  margin: 0;
+}
+
+ul {
+  padding: 0;
+  list-style-type: none;
+}
+
+button, input[type="button"], input[type="submit"] {
+  cursor: pointer;
+}
+
+input, button, select, label, textarea {
+  color: inherit;
+  font-size: inherit;
+  font-family: inherit;
+  border: 0;
+}
+
+input {
+  &[readonly] {
+    background: gray;
+  }
+
+  &[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    vertical-align: middle;
+    margin: 0;
+    background-color: white;
+    border-radius: 2px;
+    -webkit-border-radius: 2px; // for iOS
+    border: 1px solid gray;
+  }
+
+  /*
+   * 1. Address box sizing set to `content-box` in IE 8/9.
+   * 2. Remove excess padding in IE 8/9.
+   */
+  &[type="checkbox"],
+  &[type="radio"] {
+    box-sizing: border-box; /* 1 */
+    padding: 0; /* 2 */
+    margin-right: 5px;
+  }
+
+  /*
+   * 1. Address `appearance` set to `searchfield` in Safari 5 and Chrome.
+   * 2. Address `box-sizing` set to `border-box` in Safari 5 and Chrome
+   *    (include `-moz` to future-proof).
+   */
+  &[type="search"] {
+    -webkit-appearance: textfield; /* 1 */
+    -moz-box-sizing: content-box;
+    -webkit-box-sizing: content-box; /* 2 */
+    box-sizing: content-box;
+  }
+
+  /*
+   * Remove inner padding and search cancel button in Safari 5 and Chrome
+   * on OS X.
+   */
+  &[type="search"]::-webkit-search-cancel-button,
+  &[type="search"]::-webkit-search-decoration {
+    -webkit-appearance: none;
+  }
+}
+
+/*
+ * 1. Remove default vertical scrollbar in IE 8/9.
+ * 2. Improve readability and alignment in all browsers.
+ */
+textarea {
+  overflow: auto; /* 1 */
+  vertical-align: top; /* 2 */
+  cursor: text;
+  height: auto;
+  resize: none;
+}
+
+select {
+  background-color: white;
+  border-radius: 2px;
+  -webkit-border-radius: 2px; // for iOS
+  border: 1px solid gray;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+th, td {
+  padding: 5px;
+  text-align: left;
+}
+
+label {
+  display: block;
+}
+
+img {
+  max-width: 100%;
+}

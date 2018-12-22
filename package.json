@@ -1,0 +1,54 @@
+{
+  "name": "purple-berry-login",
+  "version": "1.0.0",
+  "description": "Purple Berry Login & Signup UI",
+  "main": "",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "gulp run-dev",
+    "build": "gulp build --prod"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DevangMstryls/purple-berry-login.git"
+  },
+  "author": "Devang Mstryls",
+  "license": "",
+  "homepage": "https://purple-berry-login.devangmistry.com",
+  "devDependencies": {
+    "babel-preset-es2015": "~6.24.1",
+    "babel-preset-stage-0": "~6.24.1",
+    "babelify": "~7.3.0",
+    "browser-sync": "~2.7.12",
+    "browserify": "~14.4.0",
+    "del": "~2.0.2",
+    "event-stream": "~3.3.4",
+    "glob": "~7.1.2",
+    "gulp": "~3.9.1",
+    "gulp-autoprefixer": "~3.1.0",
+    "gulp-babel": "~6.1.2",
+    "gulp-cache": "~0.4.1",
+    "gulp-connect-php": "~1.0.1",
+    "gulp-cssnano": "~2.1.0",
+    "gulp-htmlmin": "~4.0.0",
+    "gulp-if": "~2.0.0",
+    "gulp-imagemin": "~5.0.3",
+    "gulp-notify": "~3.0.0",
+    "gulp-plumber": "~1.2.0",
+    "gulp-postcss": "~7.0.0",
+    "gulp-remove-logging": "~1.2.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-sass": "~3.0.0",
+    "gulp-sitemap": "~4.2.0",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "~1.2.0",
+    "gulp-useref": "~3.0.4",
+    "minimist": "~1.2.0",
+    "run-sequence": "~1.1.2",
+    "vinyl-buffer": "~1.0.0",
+    "vinyl-source-stream": "~1.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "~4.1.2"
+  }
+}

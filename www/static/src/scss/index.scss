@@ -1,0 +1,375 @@
+@import 'core/_init';
+@import 'app/checkbox';
+
+// app element defaults
+
+input {
+  border: 2px solid $theme-color-primary-light;
+  border-radius: 4px;
+  padding: 16px;
+  transition: all 300ms ease-in-out;
+
+  &::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: $theme-color-primary-light;
+  }
+  &::-moz-placeholder { /* Firefox 19+ */
+    color: $theme-color-primary-light;
+  }
+  &:-ms-input-placeholder { /* IE 10+ */
+    color: $theme-color-primary-light;
+  }
+  &:-moz-placeholder { /* Firefox 18- */
+    color: $theme-color-primary-light;
+  }
+  &::placeholder {
+    color: $theme-color-primary-light;
+  }
+
+  &:active, &:focus {
+    border-color: $theme-color-primary;
+    color: $theme-color-primary;
+  }
+
+  &.error {
+    border-color: $color-red;
+  }
+}
+
+button {
+  background-color: $theme-color-primary;
+  color: white;
+  border-radius: 4px;
+  padding: 16px;
+  text-transform: uppercase;
+  transition: color, background-color 300ms ease-in-out;
+
+  &:hover, &:active, &:focus {
+    background-color: darken($theme-color-primary, 5);
+  }
+}
+
+label {
+  display: inline-block;
+  vertical-align: middle;
+
+  &:hover {
+    color: $theme-color-primary;
+  }
+}
+
+// app custom styles in order of appearance in DOM
+
+.msg {
+  min-height: 24px;
+  text-align: right;
+  font-size: 12px;
+  color: $color-red;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+  perspective: 1000px;
+}
+
+.login-form, .login-img {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  transition: all 300ms cubic-bezier(0.38, 0.08, 0.18, 0.87);
+}
+
+.login-form {
+  background: $color-light-purple;
+  height: 100vh;
+  width: 100%;
+  flex: 0 0 100vh;
+  animation: loginContainerExpand 2s;
+}
+
+.login-img {
+  align-items: center;
+  animation: loginImgFadeIn 1.5s;
+  will-change: transform;
+  flex: 0 0 80%;
+  margin-top: 0;
+
+  img {
+    max-width: 550px;
+    width: 100%;
+  }
+}
+
+.login-card-container {
+  // don't give this class `overflow: hidden;` or `background: white;`
+  width: 100%;
+  max-width: 350px;
+  min-height: 510px;
+  margin: 0 auto;
+  transition: all 0.6s ease-in-out;
+  transform-style: preserve-3d;
+  position: relative;
+  animation: loginCardFadeIn 3.5s;
+  will-change: transform;
+
+  &.flipped {
+    min-height: 540px;
+    transform: rotateY(180deg);
+  }
+}
+
+.login-card {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  box-shadow: 0 0 14px 0px #6967f61c;
+}
+
+.signin-content, .signup-content {
+  background: white;
+	-webkit-backface-visibility: hidden; // for Safari
+	backface-visibility: hidden;
+  position: absolute;
+  border-radius: 8px;
+  width: 100%;
+	top: 0;
+  left: 0;
+  padding: 35px 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.signin-content {
+  z-index: 2;
+}
+
+.signup-content {
+	transform: rotateY(180deg);
+}
+
+.link-btn {
+  color: $theme-color-primary-dark;
+  cursor: pointer;
+
+  &:hover {
+    color: $theme-color-primary;
+  }
+}
+
+.credit-bar {
+  background: $theme-color-primary;
+  position: relative;
+  z-index: 2;
+  text-align: left;
+  letter-spacing: 1px;
+  padding: 12px 50px 12px 15px;
+  color: #f1f1fd;
+  text-transform: uppercase;
+  font-size: 11px;
+  line-height: 190%;
+  font-family: sans-serif;
+
+  a {
+    color: #f1f1fd;
+    &:hover {
+      color: white;
+    }
+  }
+  
+  .middot {
+    display: none;
+  }
+}
+
+.github-link {
+  display: flex;
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%) translateZ(0px);
+  opacity: 0.9;
+
+  img {
+    width: 24px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.global-msg {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  z-index: 4;
+  background: $theme-color-primary;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 0 10px 0px rgba(103, 58, 183, 0.4);
+  transition: all 300ms ease-in;
+  transform: translateX(-50%) translateY(-500%) translateZ(0);
+
+  &.visible {
+    transform: translateX(-50%) translateY(30%) translateZ(0);
+
+    .progress-bar {
+      animation: reduceWidth 5s;
+    }
+  }
+}
+
+.progress-bar {
+  width: 0;
+  height: 3px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  background: $color-light-purple;
+}
+
+// keyframes
+
+@keyframes reduceWidth {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0;
+  }
+}
+
+@keyframes loginCardFadeIn {
+  0%, 50% {
+    opacity: 0;
+    transform: scale(0.9);
+    transform-origin: top;
+  }
+  70% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loginImgFadeIn {
+  0% {
+    margin-top: 15%;
+  }
+  0%, 30% {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  70% {
+    transform: scale(1);
+    margin-top: 15%;
+  }
+  100% {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+
+@keyframes loginContainerExpand {
+  0%, 50% {
+    max-height: 0;
+    flex: 0 0 0;
+    padding: 0;
+  }
+  100% {
+    flex: 0 0 100%;
+    max-height: 100%;
+  }
+}
+
+// desktop layout
+
+@media (min-width: $bp-md + 1px) {
+
+  .login-container {
+    flex-direction: row;
+  }
+  .login-form, .login-img {
+    height: 100vh; // for keeping the height full in FF
+    padding: 50px;
+  }
+  .login-form {
+    flex: 0 0 45%;
+  }
+  .login-img {
+    flex: 1 0 50%;
+  }
+
+  .credit-bar {
+    text-align: center;
+    padding: 8px 50px;
+
+    .middot {
+      display: inline;
+    }
+    .break {
+      display: none;
+    }
+  }
+  .github-link {
+    right: 8px;
+  }
+
+  // keyframes
+
+  @keyframes loginContainerExpand {
+    0%, 50% {
+      max-width: 0;
+      flex: 0 0 0;
+      padding: 0;
+    }
+    100% {
+      flex: 0 0 45%;
+      max-width: 45%;
+    }
+  }
+
+  @keyframes loginCardFadeIn {
+    0%, 50% {
+      opacity: 0;
+      transform: scale(0.9);
+      transform-origin: left;
+    }
+    70% {
+      opacity: 0.8;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes loginImgFadeIn {
+    0%, 30% {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    70% {
+      transform: scale(1);
+    }
+    100% {
+      opacity: 1;
+      margin-top: 0;
+    }
+  }
+}

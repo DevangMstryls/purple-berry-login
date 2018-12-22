@@ -1,0 +1,114 @@
+/*
+  Code taken from: https://codepen.io/theigmo87/pen/cwHyK
+*/
+
+$checked-color: #6a67f6;
+$unchecked-color: #9291bc;
+$checkbox-height: 20px;
+$duration: .3s;
+
+// keyframes
+
+@keyframes bottomCheck {
+	0% {
+		height: 0;
+	}
+	100% {
+		height: $checkbox-height / 2.4;
+	}
+}
+
+@keyframes topCheck {
+	0% {
+		height: 0;
+	}
+	50% {
+		height: 0;
+	}
+	100% {
+		height: $checkbox-height * 1;
+	}
+}
+
+// checkmark style starts here
+
+input[type="checkbox"] {
+	display: none;
+}
+
+.checkbox-cont {
+  user-select: none;
+  display: inline-block;
+
+  &:hover {
+    .checkbox { 
+      border-color: $checked-color;
+    }
+  }
+
+  label {
+    margin-left: -25px;
+    padding-left: 30px;
+    position: relative;
+    cursor: pointer;
+    transition: color ease $duration / 2;
+  }
+}
+
+.checkbox {
+	position: relative;
+	display: inline-block;
+	box-sizing: border-box;
+  vertical-align: middle;
+	width: $checkbox-height;
+	height: $checkbox-height;
+	background-color: transparent;
+	border: $checkbox-height * 0.1 solid $unchecked-color;
+	border-radius: 4px;
+	transition: border-color ease $duration / 2;
+	cursor: pointer;
+
+	&::before, &::after {
+		content: " ";
+		box-sizing: border-box;
+		position: absolute;
+		display: inline-block;
+		width: $checkbox-height * 0.1;
+		height: 0;
+		background-color: $checked-color;
+		border-radius: 5px;
+		transform-origin: left top;
+		transition: opacity ease 0.5;
+	}
+
+	&::before {
+		top: $checkbox-height * 0.67; // 13.4px
+		left: $checkbox-height * 0.41; // 8.2px
+		box-shadow: 0 0 0 $checkbox-height * 0.05 white;
+		transform: rotate(-135deg);
+	}
+
+	&::after {
+		top: $checkbox-height * 0.37; // 7.4px
+		left: $checkbox-height * 0.1; // 2px
+		transform: rotate(-45deg);
+	}
+}
+
+input[type="checkbox"]:checked ~ label {
+  color: $checked-color;
+}
+
+input[type="checkbox"]:checked + .checkbox, .checkbox.checked {
+  border-color: $checked-color;
+  
+	&::before {
+		animation: topCheck $duration ease 0s forwards;
+    height: $checkbox-height * 1.2;
+	}
+
+	&::after {
+		animation: bottomCheck $duration / 2 ease 0s forwards;
+		height: $checkbox-height * 0.3;
+	}
+}
