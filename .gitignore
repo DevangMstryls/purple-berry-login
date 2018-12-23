@@ -1,6 +1,6 @@
 .vscode
 node_modules
 dist
-www/compiled/css
-www/compiled/js
+www/static/compiled/css
+www/static/compiled/js
 _data
