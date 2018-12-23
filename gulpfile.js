@@ -5,7 +5,6 @@ const browserSync = require("browser-sync").create();
 const useref = require("gulp-useref");
 const uglify = require("gulp-uglify");
 const gulpIf = require("gulp-if");
-const cssnano = require("gulp-cssnano");
 const imagemin = require("gulp-imagemin");
 const cache = require("gulp-cache");
 const postcss = require("gulp-postcss");
