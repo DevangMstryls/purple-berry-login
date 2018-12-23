@@ -75,39 +75,31 @@ label {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  flex-flow: column;
+  flex-flow: column-reverse;
 }
 
-.login-form, .login-img {
+.login-form, .login-img-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  padding: 20px;
   transition: all 300ms cubic-bezier(0.38, 0.08, 0.18, 0.87);
 }
 
 .login-form {
-  background: $color-light-purple;
-  height: 100vh;
   width: 100%;
-  flex: 0 0 100vh;
   perspective: 1500px;
-  animation: loginContainerExpand 2s;
+  padding: 20px;
 }
 
-.login-img {
-  display: none; // hide in phone
+.login-img-container {
   align-items: center;
-  animation: loginImgFadeIn 1.5s;
   will-change: transform;
-  min-height: 400px; // to prevent the height from becoming too small when in landscape mode or when the keyboard is up
-  flex: 0 0 80%;
-  margin-top: 0;
 
-  img {
-    max-width: 550px;
+  .login-img {
+    max-width: 80%;
     max-height: 100%;
     width: 100%;
+    animation: loginImgAnimation 0.7s;
   }
 }
 
@@ -258,10 +250,10 @@ label {
 }
 
 @keyframes loginCardFadeIn {
-  0%, 50% {
+  0%, 35% {
     opacity: 0;
-    transform: scale(0.9);
-    transform-origin: top;
+    transform: scale(0.85);
+    transform-origin: bottom;
   }
   70% {
     opacity: 0.8;
@@ -272,25 +264,33 @@ label {
   }
 }
 
-@keyframes loginImgFadeIn {
-  0% {
-    margin-top: 15%;
+@keyframes loginImgContainerAnimation {
+  0%, 50% {
+    max-height: 100vh;
+    flex: 0 0 100vh;
+    padding: 0;
   }
+  100% {
+    min-height: 300px;
+    max-height: 40vh;
+    flex: 0 0 40vh;
+  }
+}
+
+@keyframes loginImgAnimation {
   0%, 30% {
     opacity: 0;
     transform: scale(0.9);
   }
   70% {
     transform: scale(1);
-    margin-top: 15%;
   }
   100% {
     opacity: 1;
-    margin-top: 0;
   }
 }
 
-@keyframes loginContainerExpand {
+@keyframes loginFormContainerAnimation {
   0%, 50% {
     padding: 0;
     flex: 0 0 0;
@@ -304,23 +304,49 @@ label {
   }
 }
 
-// desktop layout
+// mobile only layout
+
+@media (max-width: $bp-md) {
+  body {
+    background: $color-light-purple;
+  }
+  .login-img-container {
+    box-sizing: content-box;
+    min-height: 300px;
+    max-height: 40vh;
+    flex: 0 0 40vh;
+    padding: 30px 40px;
+    animation: loginImgContainerAnimation 2s;
+  }
+  .login-form {
+    margin-bottom: 50px;
+  }
+}
+
+// desktop only layout
 
 @media (min-width: $bp-md + 1px) {
-
   .login-container {
+    flex-flow: column;
     flex-direction: row;
   }
-  .login-form, .login-img {
+  .login-form, .login-img-container {
     height: 100vh; // for keeping the height full in FF
     padding: 50px;
   }
   .login-form {
+    background: $color-light-purple;
+    animation: loginFormContainerAnimation 2s;
     flex: 0 0 45%;
   }
-  .login-img {
+  .login-img-container {
     display: flex;
     flex: 1 0 50%;
+    background-color: white;
+
+    .login-img {
+      max-width: 550px;
+    }
   }
 
   .signin-content, .signup-content {
@@ -348,7 +374,7 @@ label {
 
   // keyframes
 
-  @keyframes loginContainerExpand {
+  @keyframes loginFormContainerAnimation {
     0%, 50% {
       padding: 0;
       flex: 0 0 0;
@@ -372,20 +398,6 @@ label {
     }
     100% {
       opacity: 1;
-    }
-  }
-  
-  @keyframes loginImgFadeIn {
-    0%, 30% {
-      opacity: 0;
-      transform: scale(0.9);
-    }
-    70% {
-      transform: scale(1);
-    }
-    100% {
-      opacity: 1;
-      margin-top: 0;
     }
   }
 }
