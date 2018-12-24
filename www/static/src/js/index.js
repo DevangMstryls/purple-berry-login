@@ -24,6 +24,7 @@ domReady(() => {
   const signInFormEl = document.querySelector('.signInForm');
   const formEls = document.querySelectorAll('form');
   const globalMsgEl = document.getElementById('globalMsg');
+  const spaceLessInps = document.querySelectorAll('input[type="text"], input[type="email"], input[type="password"]');
 
   signInFormEl.addEventListener('click', () => {
     showForm('signin');
@@ -32,6 +33,15 @@ domReady(() => {
   createAccountFormEl.addEventListener('click', () => {
     showForm('signup');
   });
+
+  // block spaces
+  spaceLessInps.forEach((inpEl) => {
+    inpEl.addEventListener('keypress', (e) => {
+      if( e.keyCode == 32 && e.which == 32 ) {
+        e.preventDefault();
+      }
+    });
+  })
 
   formEls.forEach((formEl) => {
     formEl.addEventListener('submit', (e) => {
