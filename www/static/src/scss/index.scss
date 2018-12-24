@@ -268,7 +268,7 @@ label {
   0%, 50% {
     max-height: 100vh;
     flex: 0 0 100vh;
-    padding: 0;
+    padding: 15px 0px;
   }
   100% {
     min-height: 300px;
@@ -315,7 +315,7 @@ label {
     min-height: 300px;
     max-height: 40vh;
     flex: 0 0 40vh;
-    padding: 30px 40px;
+    padding: 15px 40px;
     animation: loginImgContainerAnimation 2s;
   }
   .login-form {
