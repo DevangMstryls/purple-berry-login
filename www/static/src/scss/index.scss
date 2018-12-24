@@ -109,6 +109,7 @@ label {
   min-height: 510px;
   margin: 0 auto;
   transition: all 0.6s ease-in-out;
+  -moz-transform-style: preserve-3d;
   transform-style: preserve-3d;
   position: relative;
   animation: loginCardFadeIn 3.5s;
@@ -116,7 +117,7 @@ label {
 
   &.flipped {
     min-height: 540px;
-    transform: rotate3d(0, 1, 0, 180deg);
+    transform: rotateY(180deg);
   }
 }
 
@@ -125,13 +126,15 @@ label {
   height: 100%;
   width: 100%;
   top: 0;
-  box-shadow: 0 0 14px 0px #6967f61c;
+  box-shadow: 0 0 14px 0px rgba(105, 103, 246, 0.1);
 }
 
 .signin-content, .signup-content {
   background: white;
 	-webkit-backface-visibility: hidden; // for Safari
-	backface-visibility: hidden;
+	-moz-backface-visibility: hidden; // for FF
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
   position: absolute;
   border-radius: 8px;
   width: 100%;
@@ -144,12 +147,22 @@ label {
   justify-content: space-between;
 }
 
+// front
 .signin-content {
   z-index: 2;
+  /* for firefox 31 */
+	transform: rotateY(0deg);
 }
 
+// back
 .signup-content {
-	transform: rotateY(180deg);
+  /** 
+    translateZ is very important. Make a habit of using it anywhere transform is used.
+    @saver: https://stackoverflow.com/a/10900720/4331993
+  */
+	-webkit-transform: rotateY(180deg) translateZ(1px);
+	-moz-transform: rotateY(180deg) translateZ(1px);
+	transform: rotateY(180deg) translateZ(1px);
 }
 
 .link-btn {

@@ -122,7 +122,8 @@ gulp.task('compile-sass', function () {
     })
     .on('error', sass.logError))
     .pipe(postcss([autoprefixer({
-      browsers: ['> 1%', 'last 3 versions', 'IE >= 8'],
+      // Run `npx browserslist` in project directory to see what browsers was selected by the queries.
+      browsers: ['> 1%', 'last 4 versions', 'IE >= 8'], 
       cascade: true
     })]))
     .pipe(gulp.dest(DIRS.src.css)) // Outputs it in the css folder
