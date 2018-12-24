@@ -1,10 +1,11 @@
 @font-face {
   font-family: 'Arial Rounded MT Bold';
-  // src: url('./../assets/fonts/ARLRDBD.ttf') format('truetype');
+	src: 	local('Arial Rounded MT Bold'), 
+				url('./../../assets/fonts/ARLRDBD.woff') format('woff'), 
+				url('./../../assets/fonts/ARLRDBD.ttf') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
-
 
 h1,
 .h1 {
