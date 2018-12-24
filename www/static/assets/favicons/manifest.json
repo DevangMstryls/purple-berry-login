@@ -1,5 +1,6 @@
 {
- "name": "App",
+ "name": "Purple Berry Login UI",
+ "theme_color": "#6a67f6",
  "icons": [
   {
    "src": "\/static\/assets\/favicons\/android-icon-36x36.png",
