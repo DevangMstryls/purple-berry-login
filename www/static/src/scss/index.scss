@@ -281,6 +281,7 @@ label {
 
 @keyframes loginImgContainerAnimation {
   0%, 50% {
+    min-height: 100vh; // for iOS 
     max-height: 100vh;
     flex: 0 0 100vh;
     padding: 15px 0px;
