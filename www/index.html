@@ -70,11 +70,15 @@
               <p class="txt-color-primary-light">Login to your account</p>
               <form class="m-t-m" action="" data-type="signin">
                 <div class="m-t-m m-b-m">
-                  <input class="w-100" type="text" name="signin-username" id="signin-username" data-type="username" placeholder="USERNAME"/>
+                  <label class="w-100" for="signin-username" aria-label="signin-username">
+                    <input class="w-100" type="text" name="signin-username" id="signin-username" data-type="username" placeholder="USERNAME"/>
+                  </label>
                   <div class="msg" id="signin-username-msg"></div>
                 </div>
                 <div class="m-t-m m-b-m">
-                  <input class="w-100" type="password" name="signin-password" id="signin-password" data-type="password" placeholder="PASSWORD"/>
+                  <label class="w-100" for="signin-password" aria-label="signin-password">
+                    <input class="w-100" type="password" name="signin-password" id="signin-password" data-type="password" placeholder="PASSWORD"/>
+                  </label>
                   <div class="msg" id="signin-password-msg"></div>
                 </div>
                 <div class="m-t-m m-b-xl w-100">
@@ -95,15 +99,21 @@
               <p class="txt-color-primary-light">Create a new account</p>
               <form class="m-t-m" action="" data-type="signup">
                 <div class="m-t-m m-b-m">
-                  <input class="w-100" type="email" name="signup-email" id="signup-email" data-type="email" placeholder="EMAIL"/>
+                  <label class="w-100" for="signup-email" aria-label="signup-email">
+                    <input class="w-100" type="email" name="signup-email" id="signup-email" data-type="email" placeholder="EMAIL"/>
+                  </label>
                   <div class="msg" id="signup-email-msg"></div>
                 </div>
                 <div class="m-t-m m-b-m">
-                  <input class="w-100" type="text" name="signup-username" id="signup-username" data-type="username" placeholder="USERNAME"/>
+                  <label class="w-100" for="signup-username" aria-label="signup-username">
+                    <input class="w-100" type="text" name="signup-username" id="signup-username" data-type="username" placeholder="USERNAME"/>
+                  </label>
                   <div class="msg" id="signup-username-msg"></div>
                 </div>
                 <div class="m-t-m m-b-m">
-                  <input class="w-100" type="password" name="signup-password" id="signup-password" data-type="password" placeholder="PASSWORD"/>
+                  <label class="w-100" for="signup-password" aria-label="signup-password">
+                    <input class="w-100" type="password" name="signup-password" id="signup-password" data-type="password" placeholder="PASSWORD"/>
+                  </label>
                   <div class="msg" id="signup-password-msg"></div>
                 </div>
                 <button class="w-100" type="submit">CREATE ACCOUNT</button>

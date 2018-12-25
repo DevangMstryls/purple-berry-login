@@ -60,7 +60,7 @@ domReady(() => {
       // validate each input of the form
       formInps.forEach((inpEl) => {
         let inpType = inpEl.getAttribute('data-type');
-        let inpMsgEl = inpEl.parentNode.querySelector('.msg');
+        let inpMsgEl = document.querySelector(`#${formType}-${inpType}-msg`);
         let inpVal = inpEl.value.trim();
 
         // Validation #1: Check if inputs are not empty
